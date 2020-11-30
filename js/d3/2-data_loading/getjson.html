@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        d3.json("users.json", function (error, data) {
+            console.log(data);
+
+            d3.select("body")
+                .selectAll("p")
+                .data(data)
+                .enter()
+                .append("p")
+                .text(function (d) {
+                    return d.name + ", " + d.city;
+                });
+        });
+    </script>
+</body>
+
+</html>
